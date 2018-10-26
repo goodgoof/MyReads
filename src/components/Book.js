@@ -3,6 +3,10 @@ import React, {Component} from "react";
 
 
 class Book extends Component {
+  componentDidMount() {
+    console.log(this)
+  }
+
   render() {
     return(
      <h1>
@@ -50,8 +54,8 @@ class Book extends Component {
             </select>
           </div>
         </div>
-        <div className="book-title">Enders Game</div>
-        <div className="book-authors">Orson Scott Card</div>
+        <div className="book-title">{this.props.books.title}</div>
+        <div className="book-authors">{this.props.books.authors[0] || "No title..."}</div>
       </div>
     </li>
     </h1>
