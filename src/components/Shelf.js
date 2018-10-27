@@ -16,7 +16,6 @@ class Shelf extends Component {
             {
               this.props.books.map((book, key) => <Book book={book} key={key}/>)
             }
-            <Book/>
           </ol>
         </div>
 

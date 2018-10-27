@@ -1,5 +1,7 @@
 import React, {Component} from "react";
-// import Shelf from './Shelf';
+import Shelf from './Shelf';
+import { Link } from 'react-router-dom';
+
 
 
 class Book extends Component {
@@ -54,8 +56,8 @@ class Book extends Component {
             </select>
           </div>
         </div>
-        <div className="book-title">{this.props.books.title}</div>
-        <div className="book-authors">{this.props.books.authors[0] || "No title..."}</div>
+        <div className="book-title">{this.props.book.title}</div>
+        <div className="book-authors">{this.props.book.authors[0] || "No author..."}</div>
       </div>
     </li>
     </h1>
