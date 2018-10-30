@@ -1,28 +1,36 @@
 import React, {Component} from "react";
 import Shelf from './Shelf';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
+import * as BooksAPI from '../BooksAPI'
 
 
 
 class Book extends Component {
-  componentDidMount() {
-    console.log(this)
-  }
+  // constructor(props) {
+  //   super(props)
+  //     this.state ={
+  //       book: props.book
+  //     }
+  // }
+  //
+  // componentDidMount() {
+  //   console.log(this)
+  // }
 
   render() {
     return(
-     <h1>
       <li>
        <div className="book">
         <div className="book-top">
           <div className="book-cover" style={{
             width: 128,
             height: 193,
-            backgroundImage: 'url("http://books.google.com/books/content?id=PGR2AwAAQBAJ&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE73-GnPVEyb7MOCxDzOYF1PTQRuf6nCss9LMNOSWBpxBrz8Pm2_mFtWMMg_Y1dx92HT7cUoQBeSWjs3oEztBVhUeDFQX6-tWlWz1-feexS0mlJPjotcwFqAg6hBYDXuK_bkyHD-y&source=gbs_api")'
+            backgroundImage:
+            `url(${this.props.book.imageLinks  &&  this.props.book.imageLinks.thumbnail || "none"})`
            }}>
            </div>
           <div className="book-shelf-changer">
-            <select>
+            <select value ={this.props.book.shelf || "none"} onChange ={(e) => {this.props.updateBook(this.props.book, e.target.value)} }>
               <option value="move" disabled>Move to...</option>
               <option value="currentlyReading">Currently Reading</option>
               <option value="wantToRead">Want to Read</option>
@@ -31,36 +39,12 @@ class Book extends Component {
             </select>
           </div>
         </div>
-        <div className="book-title">To Kill a Mockingbird</div>
-        <div className="book-authors">Harper Lee</div>
       </div>
-    </li>
-
-    <li>
-      <div className="book">
-        <div className="book-top">
-          <div className="book-cover" style={{
-            width: 128,
-            height: 188,
-            backgroundImage: 'url("http://books.google.com/books/content?id=yDtCuFHXbAYC&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE72RRiTR6U5OUg3IY_LpHTL2NztVWAuZYNFE8dUuC0VlYabeyegLzpAnDPeWxE6RHi0C2ehrR9Gv20LH2dtjpbcUcs8YnH5VCCAH0Y2ICaKOTvrZTCObQbsfp4UbDqQyGISCZfGN&source=gbs_api")'
-          }}>
-          </div>
-
-          <div className="book-shelf-changer">
-            <select>
-              <option value="move" disabled>Move to...</option>
-              <option value="currentlyReading">Currently Reading</option>
-              <option value="wantToRead">Want to Read</option>
-              <option value="read">Read</option>
-              <option value="none">None</option>
-            </select>
-          </div>
-        </div>
         <div className="book-title">{this.props.book.title}</div>
-        <div className="book-authors">{this.props.book.authors[0] || "No author..."}</div>
-      </div>
+        <div className="book-authors">{this.props.book.authors  && this.props.book.authors[0] || "No author..."}</div>
+
     </li>
-    </h1>
+
   )
   }
 }
