@@ -1,21 +1,11 @@
 import React, {Component} from "react";
 import Shelf from './Shelf';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import * as BooksAPI from '../BooksAPI'
 
 
 
 class Book extends Component {
-  // constructor(props) {
-  //   super(props)
-  //     this.state ={
-  //       book: props.book
-  //     }
-  // }
-  //
-  // componentDidMount() {
-  //   console.log(this)
-  // }
 
   render() {
     return(

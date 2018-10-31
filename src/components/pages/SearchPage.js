@@ -10,7 +10,8 @@ class SearchPage extends React.Component {
     super(props)
       this.state ={
         books: [],
-        results: []
+        results: [],
+        query: ""
       }
   }
 
@@ -25,6 +26,23 @@ class SearchPage extends React.Component {
 
   }
 
+  updateQuery = (query) => {
+    this.setState({query:query}), this.submitSearch}
+  }
+
+  submitSearch(){
+    if(this.state.query === "" || this.state.query === undefined) {
+      return this.setState({results: []});
+    }
+    BookAPI.search(this.state.query.trim()).then(response => {
+      if(response.error){
+        return this.setState({results: [] })
+      }
+      else {
+        return this.setState({results: response});
+      }
+    })
+  }
   updateBook=(book, shelf) => {
     BooksAPI.update(book, shelf)
     .then(response => {
@@ -41,12 +59,16 @@ class SearchPage extends React.Component {
           <Link className="close-search" to="/">Close</Link>
           <div className="search-books-input-wrapper">
             <input type="text" placeholder="Search by title or author" value ={this.state.query}
-            onChange/>
+            onChange={(event) => this.updateQuery(event.target.value)}/>
 
           </div>
         </div>
         <div className="search-books-results">
-          <ol className="books-grid"></ol>
+          <ol className="books-grid">
+            {
+              this.state.results.map(item, key) =>(Book key ={key} book={item})
+            }
+          </ol>
           </div>
       </div>
     );
