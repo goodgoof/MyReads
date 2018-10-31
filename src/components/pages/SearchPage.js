@@ -27,14 +27,15 @@ class SearchPage extends React.Component {
   }
 
   updateQuery = (query) => {
-    this.setState({query:query}), this.submitSearch}
+    this.setState({query:query});
   }
 
-  submitSearch(){
+  submitSearch = () => {
     if(this.state.query === "" || this.state.query === undefined) {
       return this.setState({results: []});
     }
-    BookAPI.search(this.state.query.trim()).then(response => {
+
+    BooksAPI.search(this.state.query.trim()).then(response => {
       if(response.error){
         return this.setState({results: [] })
       }
@@ -52,6 +53,7 @@ class SearchPage extends React.Component {
       }))
     })
   }
+
   render() {
     return(
       <div className="search-books">
@@ -65,9 +67,10 @@ class SearchPage extends React.Component {
         </div>
         <div className="search-books-results">
           <ol className="books-grid">
-            {
-              this.state.results.map(item, key) =>(Book key ={key} book={item})
-            }
+          {
+            this.state.results.map((item, key) => (<Book key ={key} book={item}/>))
+          }
+
           </ol>
           </div>
       </div>
