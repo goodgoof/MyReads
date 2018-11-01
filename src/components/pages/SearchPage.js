@@ -27,7 +27,7 @@ class SearchPage extends React.Component {
   }
 
   updateQuery = (query) => {
-    this.setState({query:query});
+    this.setState({query:query}, this.submitSearch);
   }
 
   submitSearch = () => {
