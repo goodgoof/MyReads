@@ -90,3 +90,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
 
 For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+
+## Resources
+
+For successful completion of this project I referred to React documentation, Ryan Waite's and Forrest Walker's and Doug Brown's walthroughs. The contact-app in the Udacity lesson on React was also very helpful. Last but not least a huge shout out to the wonderful slack community which helped me fix the bugs in my code. Thanks for the study jams and forever helpful Brenda.
