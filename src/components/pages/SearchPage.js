@@ -40,6 +40,11 @@ class SearchPage extends React.Component {
         return this.setState({results: [] })
       }
       else {
+        response.forEach(b =>{
+          let f = this.state.books.filter(B => B.id === b.Id);
+          if(f[0]) {b.shelf = f[0].shelf}
+
+        })
         return this.setState({results: response});
       }
     })
@@ -49,7 +54,7 @@ class SearchPage extends React.Component {
     .then(response => {
       book.shelf =shelf
       this.setState(state =>({
-        Books: state.book.filter(b => b.id !== Book.Id).concat({Book})
+        Books: state.books.filter(b => b.id !== Book.Id).concat({Book})
       }))
     })
   }
@@ -68,7 +73,7 @@ class SearchPage extends React.Component {
         <div className="search-books-results">
           <ol className="books-grid">
           {
-            this.state.results.map((item, key) => (<Book key ={key} book={item}/>))
+            this.state.results.map((book, key) => (<Book updateBook = {this.updateBook} book ={book} key={key}/>))
           }
 
           </ol>
