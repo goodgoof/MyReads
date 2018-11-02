@@ -1,15 +1,17 @@
 # MyReads Project
 
-This is the starter template for the final assessment project for Udacity's React Fundamentals course. The goal of this template is to save you time by providing a static example of the CSS and HTML markup that may be used, but without any of the React code that is needed to complete the project. If you choose to start with this template, your job will be to add interactivity to the app by refactoring the static code in this template.
+This is the Myreads project. This project is like a book case with 3 shelves,'Currently Reading', 'Want to Read' and 'Read'. The shelves makes it easy for you the track your reading progress. You can also search for books in the search page and add it to any shelf you want.
 
-Of course, you are free to start this project from scratch if you wish! Just be sure to use [Create React App](https://github.com/facebookincubator/create-react-app) to bootstrap the project.
+This App is built on React. To run this App you need to install node.js to your computer.You can clone or download the repository from here https://github.com/goodgoof/MyReads
 
 ## TL;DR
 
-To get started developing right away:
+To run the App right away:
 
-* install all project dependencies with `npm install`
-* start the development server with `npm start`
+* After cloning the repo, go to the project directory by running cmd 'cd <name of directory>'
+* Once in the directory. Install all project dependencies with `npm install`
+* Start the development server with `npm start`
+* The app will automatically open in port 3000. The address bar will look like this localhost:3000
 
 ## What You're Getting
 ```bash
