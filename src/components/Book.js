@@ -16,7 +16,8 @@ class Book extends Component {
             width: 128,
             height: 193,
             backgroundImage:
-            `url(${this.props.book.imageLinks  &&  this.props.book.imageLinks.thumbnail || "none"})`
+            `url(${this.props.book.imageLinks ? this.props.book.imageLinks.thumbnail: "Default url or none"},
+            )`
            }}>
            </div>
           <div className="book-shelf-changer">
